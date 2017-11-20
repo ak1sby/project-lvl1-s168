@@ -1,6 +1,6 @@
 {
   "name": "brain-games-grishkevich",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/index.js",
   "bin": {
