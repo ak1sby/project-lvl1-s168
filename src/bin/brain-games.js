@@ -1,4 +1,4 @@
-#! src/bin/brain-games.js
+#! src/bin/env node
 
 import getName from '..';
 

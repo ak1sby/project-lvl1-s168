@@ -6,3 +6,4 @@ const getName = () => {
   return userName;
 }
 export { getName };
+console.log(" asd ")
