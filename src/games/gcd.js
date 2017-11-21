@@ -1,7 +1,15 @@
 import readlineSync from 'readline-sync';
 import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { getRandomInt, gcd } from '../common/functions';
+import { getRandomInt } from '../common/utils';
 import { startGame } from '..';
+
+export const gcd = (a, b) => {
+  if (b === 0) {
+    return a;
+  }
+
+  return gcd(b, a % b);
+};
 
 const gameData = () => {
   const firstOperand = getRandomInt(1, 5);

@@ -1,7 +1,11 @@
 import readlineSync from 'readline-sync';
 import { cons, car, cdr, toString } from 'hexlet-pairs';
-import { isEven, getRandomInt } from '../common/functions';
+import { getRandomInt } from '../common/utils';
 import { startGame } from '..';
+
+export const isEven = (num) => {
+  return ((num % 2) === 0) ? true : false;
+};
 
 const gameData = () => {
   const question = getRandomInt(1, 100);
