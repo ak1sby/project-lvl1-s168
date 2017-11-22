@@ -1,24 +1,27 @@
 import { cons } from 'hexlet-pairs';
-import { getRandomInt } from '../common/utils';
 import { startGame } from '..';
 
-const isPrime = (a) => {
-  if (a < 2) {
-    return false;
-  }
-
-  let i = 2;
-
-  while (i <= a / 2) {
-    if (a % i === 0) {
-      return false;
-    }
-    i++;
-  }
-  return true;
+const getRandomInt = (a, b) => {
+  const min = Math.ceil(a);
+  const max = Math.floor(b);
+  return Math.floor(Math.random() * (max - min)) + min;
 };
 
-export const isEven = num => (((num % 2) === 0));
+const isPrime = (n) => {
+  const iter = (m, i) => {
+    if (m < 2) {
+      return false;
+    } else if (m === 2) {
+      return true;
+    } else if (m % i === 0) {
+      return false;
+    } else if (i < m / 2) {
+      return iter(m, i + 1);
+    }
+    return true;
+  };
+  return iter(n, 2);
+};
 
 const gameData = () => {
   const question = getRandomInt(1, 100);

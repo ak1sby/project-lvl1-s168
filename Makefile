@@ -1,7 +1,10 @@
 install: npm install
 
-start: npm run babel-node -- src/bin/brain-games.js
+start:
+	npm run babel-node -- src/bin/brain-games.js
 
-publish: npm publish
+lint:
+	npm run eslint .
 
-lint: npm run eslint -- src
+publish:
+	npm publish

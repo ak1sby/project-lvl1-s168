@@ -1,6 +1,11 @@
 import { cons } from 'hexlet-pairs';
-import { getRandomInt } from '../common/utils';
 import { startGame } from '..';
+
+const getRandomInt = (a, b) => {
+  const min = Math.ceil(a);
+  const max = Math.floor(b);
+  return Math.floor(Math.random() * (max - min)) + min;
+};
 
 export const isEven = (num) => {
   return ((num % 2) === 0) ? true : false;

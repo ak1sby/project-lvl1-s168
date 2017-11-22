@@ -1,12 +1,16 @@
 import { cons } from 'hexlet-pairs';
-import { getRandomInt } from '../common/utils';
 import { startGame } from '..';
+
+const getRandomInt = (a, b) => {
+  const min = Math.ceil(a);
+  const max = Math.floor(b);
+  return Math.floor(Math.random() * (max - min)) + min;
+};
 
 export const gcd = (a, b) => {
   if (b === 0) {
     return a;
   }
-
   return gcd(b, a % b);
 };
 
