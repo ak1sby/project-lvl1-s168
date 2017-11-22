@@ -7,25 +7,25 @@ const getRandomInt = (a, b) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-const progression = (initialTerm, commonDifference) => {
-  let curentProgressionElement = initialTerm;
-  let result = '';
-  for (let i = 0; i < 9; i++) {
-    curentProgressionElement += commonDifference;
-    result += ` ${curentProgressionElement}`;
-    if (i === 4) {
-      result += ' ' + '..';
-      curentProgressionElement += commonDifference;
+const progression = (initialTerm, commonDifference, position, lengthProgression) => {
+  const iter = (acc, strLength, number, spaceNumber) => {
+    if (strLength === 0) {
+      return acc;
+    } else if (strLength === spaceNumber) {
+      return iter(acc +  " " + "..", strLength - 1, number + commonDifference, spaceNumber);
     }
-  }
-  return result;
+    return iter(acc + " " + number , strLength - 1, number + commonDifference, spaceNumber);
+  };
+return iter("", lengthProgression, initialTerm, (lengthProgression + 1) - position);
 };
 
 const gameData = () => {
   const initialTerm = getRandomInt(0, 20);
   const commonDifference = getRandomInt(2, 4);
-  const question = progression(initialTerm, commonDifference);
-  const correctAnswer = String(initialTerm + (6 * commonDifference));
+  const position = getRandomInt(2, 9);
+  const lengthProgression = 10;
+  const question = progression(initialTerm, commonDifference, position, lengthProgression);
+  const correctAnswer = String(initialTerm + ((position - 1) * commonDifference));
   return cons(question, correctAnswer);
 };
 
