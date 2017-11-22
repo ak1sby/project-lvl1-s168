@@ -16,7 +16,7 @@ export const loseGamePrint = (userName, userAnswer, correctAnswer) => {
 export const startGame = (gameDescription, gameData) => {
   let userScore = 0;
   const userName = greeting(gameDescription);
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < 3; i += 1) {
     const curentGameData = gameData();
     const question = car(curentGameData);
     console.log(`Question:${question}`);
@@ -31,5 +31,5 @@ export const startGame = (gameDescription, gameData) => {
       return;
     }
   }
-if (userScore === 3) console.log(`Congratulations, ${userName}!`);
+  if (userScore === 3) console.log(`Congratulations, ${userName}!`);
 };

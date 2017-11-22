@@ -8,7 +8,10 @@ const getRandomInt = (a, b) => {
 };
 
 export const isEven = (num) => {
-  return ((num % 2) === 0) ? true : false;
+  if (num % 2 === 0) {
+    return true;
+  }
+  return false;
 };
 
 const gameData = () => {

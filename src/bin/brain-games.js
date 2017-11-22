@@ -2,5 +2,4 @@
 
 /* import getName from '..';
 
-
 getName(); */

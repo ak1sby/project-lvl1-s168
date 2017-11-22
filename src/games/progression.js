@@ -12,11 +12,11 @@ const progression = (initialTerm, commonDifference, position, lengthProgression)
     if (strLength === 0) {
       return acc;
     } else if (strLength === spaceNumber) {
-      return iter(acc +  " " + "..", strLength - 1, number + commonDifference, spaceNumber);
+      return iter(`${acc} ..`, strLength - 1, number + commonDifference, spaceNumber);
     }
-    return iter(acc + " " + number , strLength - 1, number + commonDifference, spaceNumber);
+    return iter(`${acc} ${number}`, strLength - 1, number + commonDifference, spaceNumber);
   };
-return iter("", lengthProgression, initialTerm, (lengthProgression + 1) - position);
+  return iter('', lengthProgression, initialTerm, (lengthProgression + 1) - position);
 };
 
 const gameData = () => {

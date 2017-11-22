@@ -19,13 +19,13 @@ const balance = (number) => {
   const remainder = sumNumber(number) % strLength;
   const pureNumber = sumNumber(number) - remainder;
   const average = pureNumber / strLength;
-  const iter = (acc, strLength, average, remainder) => {
-    if (strLength === 0) {
+  const iter = (acc, length, averageValue, remainderValue) => {
+    if (length === 0) {
       return acc;
-    } else if (strLength <= remainder) {
-      return iter(acc + (1 * (average + 1)), strLength - 1, average, remainder - 1);
+    } else if (length <= remainderValue) {
+      return iter(acc + (1 * (averageValue + 1)), length - 1, averageValue, remainderValue - 1);
     }
-    return iter(acc + average, strLength - 1, average, remainder);
+    return iter(acc + averageValue, length - 1, averageValue, remainderValue);
   };
   return iter('', strLength, average, remainder);
 };
