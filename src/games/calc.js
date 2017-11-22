@@ -1,5 +1,4 @@
-import readlineSync from 'readline-sync';
-import { cons, car, cdr, toString } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
 import { getRandomInt } from '../common/utils';
 import { startGame } from '..';
 
