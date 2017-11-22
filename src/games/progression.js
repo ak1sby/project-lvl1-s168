@@ -29,7 +29,7 @@ const gameData = (difficulty) => {
       case '3':
         return getRandomInt(1, 100);
       default:
-        return getRandomInt(10, 100);
+        return getRandomInt(1, 5);
     }
   };
   const initialTerm = getRandomInt(0, 20);
