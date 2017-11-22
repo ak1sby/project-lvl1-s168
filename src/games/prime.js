@@ -33,7 +33,7 @@ const gameData = (difficulty) => {
       case '3':
         return getRandomInt(1, 1000);
       default:
-        return 'invalid input, try again ';
+        return getRandomInt(10, 100);
     }
   };
   const question = selectDifficulty(difficulty);

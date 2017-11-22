@@ -24,7 +24,7 @@ const gameData = (difficulty) => {
       case '3':
         return getRandomInt(1, 100);
       default:
-        return 'invalid input, try again ';
+        return getRandomInt(10, 100);
     }
   };
   const firstOperand = selectDifficulty(difficulty);
