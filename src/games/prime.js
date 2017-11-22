@@ -23,8 +23,20 @@ const isPrime = (n) => {
   return iter(n, 2);
 };
 
-const gameData = () => {
-  const question = getRandomInt(1, 100);
+const gameData = (difficulty) => {
+  const selectDifficulty = (num) => {
+    switch (num) {
+      case '1':
+        return getRandomInt(1, 50);
+      case '2':
+        return getRandomInt(1, 100);
+      case '3':
+        return getRandomInt(1, 1000);
+      default:
+        return 'invalid input, try again ';
+    }
+  };
+  const question = selectDifficulty(difficulty);
   const correctAnswer = (isPrime(question)) === true ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };

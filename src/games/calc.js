@@ -33,10 +33,22 @@ export const calc = (operator, firstOperand, secondOperand) => {
   }
 };
 
-const gameData = () => {
+const gameData = (difficulty) => {
+  const selectDifficulty = (num) => {
+    switch (num) {
+      case '1':
+        return getRandomInt(1, 100);
+      case '2':
+        return getRandomInt(1, 1000);
+      case '3':
+        return getRandomInt(1, 10000);
+      default:
+        return 'invalid input, try again ';
+    }
+  };
   const operator = getRandomOpr();
-  const firstOperand = getRandomInt(1, 5);
-  const secondOperand = getRandomInt(1, 5);
+  const firstOperand = selectDifficulty(difficulty);
+  const secondOperand = selectDifficulty(difficulty);
   const question = `${firstOperand} ${operator} ${secondOperand}`;
   const correctAnswer = String(calc(operator, firstOperand, secondOperand));
   return cons(question, correctAnswer);

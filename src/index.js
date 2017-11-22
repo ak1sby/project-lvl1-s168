@@ -16,8 +16,9 @@ export const loseGamePrint = (userName, userAnswer, correctAnswer) => {
 export const startGame = (gameDescription, gameData) => {
   let userScore = 0;
   const userName = greeting(gameDescription);
+  const difficulty = readlineSync.question('Select difficulty, from 1 to 3: ');
   for (let i = 0; i < 3; i += 1) {
-    const curentGameData = gameData();
+    const curentGameData = gameData(difficulty);
     const question = car(curentGameData);
     console.log(`Question:${question}`);
     const userAnswer = readlineSync.question('Your answer: ');

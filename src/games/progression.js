@@ -19,9 +19,21 @@ const progression = (initialTerm, commonDifference, position, lengthProgression)
   return iter('', lengthProgression, initialTerm, (lengthProgression + 1) - position);
 };
 
-const gameData = () => {
+const gameData = (difficulty) => {
+  const selectDifficulty = (num) => {
+    switch (num) {
+      case '1':
+        return getRandomInt(1, 5);
+      case '2':
+        return getRandomInt(1, 20);
+      case '3':
+        return getRandomInt(1, 100);
+      default:
+        return 'invalid input, try again ';
+    }
+  };
   const initialTerm = getRandomInt(0, 20);
-  const commonDifference = getRandomInt(2, 4);
+  const commonDifference = selectDifficulty(difficulty);
   const position = getRandomInt(2, 9);
   const lengthProgression = 10;
   const question = progression(initialTerm, commonDifference, position, lengthProgression);

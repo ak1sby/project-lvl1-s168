@@ -14,8 +14,20 @@ export const isEven = (num) => {
   return false;
 };
 
-const gameData = () => {
-  const question = getRandomInt(1, 100);
+const gameData = (difficulty) => {
+  const selectDifficulty = (num) => {
+    switch (num) {
+      case '1':
+        return getRandomInt(1, 100);
+      case '2':
+        return getRandomInt(1, 1000);
+      case '3':
+        return getRandomInt(1, 10000);
+      default:
+        return 'invalid input, try again ';
+    }
+  };
+  const question = selectDifficulty(difficulty);
   const correctAnswer = (isEven(question)) === true ? 'yes' : 'no';
   return cons(question, correctAnswer);
 };

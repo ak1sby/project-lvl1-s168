@@ -14,9 +14,21 @@ export const gcd = (a, b) => {
   return gcd(b, a % b);
 };
 
-const gameData = () => {
-  const firstOperand = getRandomInt(1, 5);
-  const secondOperand = getRandomInt(1, 5);
+const gameData = (difficulty) => {
+  const selectDifficulty = (num) => {
+    switch (num) {
+      case '1':
+        return getRandomInt(1, 5);
+      case '2':
+        return getRandomInt(1, 50);
+      case '3':
+        return getRandomInt(1, 100);
+      default:
+        return 'invalid input, try again ';
+    }
+  };
+  const firstOperand = selectDifficulty(difficulty);
+  const secondOperand = selectDifficulty(difficulty);
   const question = `${firstOperand} ${secondOperand}`;
   const correctAnswer = String(gcd(firstOperand, secondOperand));
   return cons(question, correctAnswer);
