@@ -1,5 +1,5 @@
 #! /usr/bin/env node
 
-import start from '../games/start';
+import start from '../common/start-menu';
 
 start();

@@ -3,7 +3,7 @@ import { car, cdr } from 'hexlet-pairs';
 
 export const greeting = (gameDescription) => {
   const userName = readlineSync.question('May I have your name?: ');
-  console.log(`\nGames rule: ${gameDescription}\n`);
+  console.log(`\nGame rule: ${gameDescription}\n`);
   return userName;
 };
 
@@ -13,23 +13,30 @@ export const loseGamePrint = (userName, userAnswer, correctAnswer) => {
 };
 
 export const startGame = (gameDescription, gameData) => {
-  let userScore = 0;
-  const userName = greeting(gameDescription);
-  const difficulty = readlineSync.question('Select difficulty, from 1 to 3: ');
-  for (let i = 0; i < 3; i += 1) {
-    const curentGameData = gameData(difficulty);
+  const userName = greeting(cdr(gameDescription));
+  const difficulty = (value) => {
+    if (value !== 'default') {
+      return readlineSync.question(`Select difficulty, from 1 to ${car(gameDescription)}: `);
+    }
+    return 'default';
+  };
+  const difficultyValue = difficulty(car(gameDescription));
+  const iter = (round) => {
+    if (round === 0) {
+      return console.log(`Congratulations, ${userName}!`);
+    }
+    const curentGameData = gameData(difficultyValue);
     const question = car(curentGameData);
     console.log(`Question:${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
     const correctAnswer = cdr(curentGameData);
     const isUserAnswerCorrect = userAnswer === correctAnswer;
     if (isUserAnswerCorrect) {
-      userScore += 1;
       console.log('Correct!');
     } else {
-      loseGamePrint(userName, userAnswer, correctAnswer);
-      return;
+      return loseGamePrint(userName, userAnswer, correctAnswer);
     }
-  }
-  if (userScore === 3) console.log(`Congratulations, ${userName}!`);
+    return iter(round - 1);
+  };
+  return iter(3);
 };

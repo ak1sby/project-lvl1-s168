@@ -1,11 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { startGame } from '..';
-
-const getRandomInt = (a, b) => {
-  const min = Math.ceil(a);
-  const max = Math.floor(b);
-  return Math.floor(Math.random() * (max - min)) + min;
-};
+import getRandomInt from '../common/utils';
 
 const isPrime = (n) => {
   const iter = (m, i) => {
@@ -42,6 +37,8 @@ const gameData = (difficulty) => {
 };
 
 export default () => {
-  const gameDescription = 'Is this number prime?';
+  const difficulty = '3';
+  const rule = 'Is this number prime?';
+  const gameDescription = cons(difficulty, rule);
   startGame(gameDescription, gameData);
 };

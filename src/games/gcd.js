@@ -1,11 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { startGame } from '..';
-
-const getRandomInt = (a, b) => {
-  const min = Math.ceil(a);
-  const max = Math.floor(b);
-  return Math.floor(Math.random() * (max - min)) + min;
-};
+import getRandomInt from '../common/utils';
 
 export const gcd = (a, b) => {
   if (b === 0) {
@@ -21,8 +16,6 @@ const gameData = (difficulty) => {
         return getRandomInt(1, 5);
       case '2':
         return getRandomInt(1, 50);
-      case '3':
-        return getRandomInt(1, 100);
       default:
         return getRandomInt(1, 5);
     }
@@ -35,6 +28,8 @@ const gameData = (difficulty) => {
 };
 
 export default () => {
-  const gameDescription = 'Find the greatest common divisor of given numbers.';
+  const difficulty = '2';
+  const rule = 'Find the greatest common divisor of given numbers.';
+  const gameDescription = cons(difficulty, rule);
   startGame(gameDescription, gameData);
 };

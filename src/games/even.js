@@ -1,11 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { startGame } from '..';
-
-const getRandomInt = (a, b) => {
-  const min = Math.ceil(a);
-  const max = Math.floor(b);
-  return Math.floor(Math.random() * (max - min)) + min;
-};
+import getRandomInt from '../common/utils';
 
 export const isEven = (num) => {
   if (num % 2 === 0) {
@@ -33,6 +28,8 @@ const gameData = (difficulty) => {
 };
 
 export default () => {
-  const gameDescription = 'Answer "yes" if number even otherwise answer "no".';
+  const difficulty = '3';
+  const rule = 'Answer "yes" if number even otherwise answer "no".';
+  const gameDescription = cons(difficulty, rule);
   startGame(gameDescription, gameData);
 };

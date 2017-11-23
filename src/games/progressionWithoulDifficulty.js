@@ -14,23 +14,9 @@ const progression = (initialTerm, commonDifference, position, lengthProgression)
   return iter(cons('', 0), lengthProgression, initialTerm, (lengthProgression + 1) - position);
 };
 
-const gameData = (difficulty) => {
-  const selectDifficulty = (num) => {
-    switch (num) {
-      case '1':
-        return getRandomInt(1, 5);
-      case '2':
-        return getRandomInt(1, 20);
-      case '3':
-        return getRandomInt(1, 100);
-      case '4':
-        return getRandomInt(1, 1000);
-      default:
-        return getRandomInt(1, 5);
-    }
-  };
+const gameData = () => {
   const initialTerm = getRandomInt(0, 20);
-  const commonDifference = selectDifficulty(difficulty);
+  const commonDifference = getRandomInt(0, 5);
   const position = getRandomInt(2, 9);
   const lengthProgression = 10;
   const question = car(progression(initialTerm, commonDifference, position, lengthProgression));
@@ -40,7 +26,7 @@ const gameData = (difficulty) => {
 };
 
 export default () => {
-  const difficulty = '4';
+  const difficulty = 'default';
   const rule = 'What number is missing in this progression?';
   const gameDescription = cons(difficulty, rule);
   startGame(gameDescription, gameData);

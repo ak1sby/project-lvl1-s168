@@ -1,11 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { startGame } from '..';
-
-const getRandomInt = (a, b) => {
-  const min = Math.ceil(a);
-  const max = Math.floor(b);
-  return Math.floor(Math.random() * (max - min)) + min;
-};
+import getRandomInt from '../common/utils';
 
 const balance = (number) => {
   const numberStr = String(number);
@@ -50,6 +45,8 @@ const gameData = (difficulty) => {
 };
 
 export default () => {
-  const gameDescription = 'Balance the given number.';
+  const difficulty = '3';
+  const rule = 'Answer "yes" if number even otherwise answer "no".';
+  const gameDescription = cons(difficulty, rule);
   startGame(gameDescription, gameData);
 };
