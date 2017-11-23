@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { startGame } from '..';
-import getRandomInt from '../common/utils';
+import getRandomInt from '../common/getRandomInt';
 
 const balance = (number) => {
   const numberStr = String(number);

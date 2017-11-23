@@ -1,6 +1,6 @@
 import { cons } from 'hexlet-pairs';
 import { startGame } from '..';
-import getRandomInt from '../common/utils';
+import getRandomInt from '../common/getRandomInt';
 
 export const getRandomOpr = () => {
   switch (getRandomInt(1, 4)) {

@@ -1,6 +1,6 @@
 import { cons, car, cdr } from 'hexlet-pairs';
 import { startGame } from '..';
-import getRandomInt from '../common/utils';
+import getRandomInt from '../common/getRandomInt';
 
 const progression = (initialTerm, commonDifference, position, lengthProgression) => {
   const iter = (acc, strLength, number, spaceNumber) => {
@@ -33,9 +33,9 @@ const gameData = (difficulty) => {
   const commonDifference = selectDifficulty(difficulty);
   const position = getRandomInt(2, 9);
   const lengthProgression = 10;
-  const question = car(progression(initialTerm, commonDifference, position, lengthProgression));
-  const getAnswer = cdr(progression(initialTerm, commonDifference, position, lengthProgression));
-  const correctAnswer = String(getAnswer);
+  const progressionResut = progression(initialTerm, commonDifference, position, lengthProgression);
+  const question = car(progressionResut);
+  const correctAnswer = String(cdr(progressionResut));
   return cons(question, correctAnswer);
 };
 

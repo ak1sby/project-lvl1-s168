@@ -12,7 +12,7 @@ export const loseGamePrint = (userName, userAnswer, correctAnswer) => {
   console.log(`Let's try again, ${userName}`);
 };
 
-export const startGame = (gameDescription, gameData) => {
+export const startGame = (gameDescription, gameBuild) => {
   const userName = greeting(cdr(gameDescription));
   const difficulty = (value) => {
     if (value !== 'default') {
@@ -25,7 +25,7 @@ export const startGame = (gameDescription, gameData) => {
     if (round === 0) {
       return console.log(`Congratulations, ${userName}!`);
     }
-    const curentGameData = gameData(difficultyValue);
+    const curentGameData = gameBuild(difficultyValue);
     const question = car(curentGameData);
     console.log(`Question:${question}`);
     const userAnswer = readlineSync.question('Your answer: ');
