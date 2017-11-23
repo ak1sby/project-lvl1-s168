@@ -46,7 +46,7 @@ const gameData = (difficulty) => {
 
 export default () => {
   const difficulty = '3';
-  const rule = 'Answer "yes" if number even otherwise answer "no".';
+  const rule = 'Balance the given number.';
   const gameDescription = cons(difficulty, rule);
   startGame(gameDescription, gameData);
 };
