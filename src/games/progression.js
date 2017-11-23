@@ -4,12 +4,11 @@ import getRandomInt from '../common/getRandomInt';
 
 const progression = (initialTerm, commonDifference, position, lengthProgression) => {
   const iter = (acc, strLength, number, spaceNumber) => {
+    const curentAcc = (strLength === spaceNumber) ? cons(`${car(acc)} ..`, cdr(acc) + number) : cons(`${car(acc)} ${number}`, cdr(acc));
     if (strLength === 0) {
       return acc;
-    } else if (strLength === spaceNumber) {
-      return iter(cons(`${car(acc)} ..`, cdr(acc) + number), strLength - 1, number + commonDifference, spaceNumber);
     }
-    return iter(cons(`${car(acc)} ${number}`, cdr(acc)), strLength - 1, number + commonDifference, spaceNumber);
+    return iter(curentAcc, strLength - 1, number + commonDifference, spaceNumber);
   };
   return iter(cons('', 0), lengthProgression, initialTerm, (lengthProgression + 1) - position);
 };
