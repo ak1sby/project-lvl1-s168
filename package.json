@@ -1,7 +1,7 @@
 {
   "name": "brain-games-grishkevich",
-  "version": "1.0.24",
-  "description": "",
+  "version": "1.0.27",
+  "description": "Hexlet project",
   "main": "dist/index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",

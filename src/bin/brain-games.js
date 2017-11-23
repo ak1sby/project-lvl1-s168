@@ -1,5 +1,5 @@
 #! /usr/bin/env node
 
-import getName from '../games/start';
+import start from '../games/start';
 
-getName();
+start();
