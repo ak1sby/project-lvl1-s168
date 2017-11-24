@@ -18,7 +18,7 @@ const isPrime = (n) => {
   return iter(n, 2);
 };
 
-const gameData = (difficulty) => {
+const buildGame = (difficulty) => {
   const selectDifficulty = (num) => {
     switch (num) {
       case '1':
@@ -40,5 +40,5 @@ export default () => {
   const difficulty = '3';
   const rule = 'Is this number prime?';
   const gameDescription = cons(difficulty, rule);
-  startGame(gameDescription, gameData);
+  startGame(gameDescription, buildGame);
 };

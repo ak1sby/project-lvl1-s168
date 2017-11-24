@@ -28,7 +28,7 @@ export const calc = (operator, firstOperand, secondOperand) => {
   }
 };
 
-const gameData = (difficulty) => {
+const buildGame = (difficulty) => {
   const selectDifficulty = (num) => {
     switch (num) {
       case '1':
@@ -53,5 +53,5 @@ export default () => {
   const difficulty = '3';
   const rule = 'What is the result of the expression?';
   const gameDescription = cons(difficulty, rule);
-  startGame(gameDescription, gameData);
+  startGame(gameDescription, buildGame);
 };

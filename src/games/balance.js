@@ -25,7 +25,7 @@ const balance = (number) => {
   return iter('', strLength, average, remainder);
 };
 
-const gameData = (difficulty) => {
+const buildGame = (difficulty) => {
   const selectDifficulty = (num) => {
     switch (num) {
       case '1':
@@ -48,5 +48,5 @@ export default () => {
   const difficulty = '3';
   const rule = 'Balance the given number.';
   const gameDescription = cons(difficulty, rule);
-  startGame(gameDescription, gameData);
+  startGame(gameDescription, buildGame);
 };

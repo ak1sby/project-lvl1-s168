@@ -13,7 +13,7 @@ const progression = (initialTerm, commonDifference, position, lengthProgression)
   return iter(cons('', 0), lengthProgression, initialTerm, (lengthProgression + 1) - position);
 };
 
-const gameData = (difficulty) => {
+const buildGame = (difficulty) => {
   const selectDifficulty = (num) => {
     switch (num) {
       case '1':
@@ -42,5 +42,5 @@ export default () => {
   const difficulty = '4';
   const rule = 'What number is missing in this progression?';
   const gameDescription = cons(difficulty, rule);
-  startGame(gameDescription, gameData);
+  startGame(gameDescription, buildGame);
 };

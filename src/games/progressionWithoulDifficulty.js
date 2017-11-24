@@ -13,7 +13,7 @@ const progression = (initialTerm, commonDifference, position, lengthProgression)
   return iter(cons('', 0), lengthProgression, initialTerm, (lengthProgression + 1) - position, commonDifference);
 };
 
-const gameBuild = () => {
+const buildGame = () => {
   const initialTerm = getRandomInt(0, 20);
   const commonDifference = getRandomInt(1, 5);
   const position = getRandomInt(3, 6);
@@ -28,5 +28,5 @@ export default () => {
   const difficulty = 'default';
   const rule = 'What number is missing in this progression?';
   const gameDescription = cons(difficulty, rule);
-  startGame(gameDescription, gameBuild);
+  startGame(gameDescription, buildGame);
 };

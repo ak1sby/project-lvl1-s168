@@ -9,7 +9,7 @@ export const gcd = (a, b) => {
   return gcd(b, a % b);
 };
 
-const gameData = (difficulty) => {
+const buildGame = (difficulty) => {
   const selectDifficulty = (num) => {
     switch (num) {
       case '1':
@@ -31,5 +31,5 @@ export default () => {
   const difficulty = '2';
   const rule = 'Find the greatest common divisor of given numbers.';
   const gameDescription = cons(difficulty, rule);
-  startGame(gameDescription, gameData);
+  startGame(gameDescription, buildGame);
 };

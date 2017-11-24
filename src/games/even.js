@@ -9,7 +9,7 @@ export const isEven = (num) => {
   return false;
 };
 
-const gameData = (difficulty) => {
+const buildGame = (difficulty) => {
   const selectDifficulty = (num) => {
     switch (num) {
       case '1':
@@ -31,5 +31,5 @@ export default () => {
   const difficulty = '3';
   const rule = 'Answer "yes" if number even otherwise answer "no".';
   const gameDescription = cons(difficulty, rule);
-  startGame(gameDescription, gameData);
+  startGame(gameDescription, buildGame);
 };
