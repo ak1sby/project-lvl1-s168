@@ -32,13 +32,13 @@ const buildGame = (difficulty) => {
   const selectDifficulty = (num) => {
     switch (num) {
       case '1':
-        return getRandomInt(1, 100);
+        return getRandomInt(1, 10);
       case '2':
-        return getRandomInt(1, 1000);
+        return getRandomInt(1, 50);
       case '3':
-        return getRandomInt(1, 10000);
-      default:
         return getRandomInt(1, 100);
+      default:
+        return getRandomInt(1, 10);
     }
   };
   const operator = getRandomOpr();

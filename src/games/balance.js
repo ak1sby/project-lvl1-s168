@@ -12,17 +12,16 @@ const balance = (number) => {
     return (n % 10) + Math.floor(sumNumber(n / 10));
   };
   const remainder = sumNumber(number) % strLength;
-  const pureNumber = sumNumber(number) - remainder;
-  const average = pureNumber / strLength;
-  const iter = (acc, length, averageValue, remainderValue) => {
+  const average = Number((sumNumber(number) - remainder) / strLength);
+  const iter = (acc, length, remainderValue) => {
     if (length === 0) {
       return acc;
     } else if (length <= remainderValue) {
-      return iter(acc + (1 * (averageValue + 1)), length - 1, averageValue, remainderValue - 1);
+      return iter(acc + (average + 1), length - 1, remainderValue - 1);
     }
-    return iter(acc + averageValue, length - 1, averageValue, remainderValue);
+    return iter(acc + average, length - 1, remainderValue);
   };
-  return iter('', strLength, average, remainder);
+  return iter('', strLength, remainder);
 };
 
 const buildGame = (difficulty) => {

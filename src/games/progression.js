@@ -2,11 +2,11 @@ import { cons } from 'hexlet-pairs';
 import { startGame } from '..';
 import getRandomInt from '../common/getRandomInt';
 
-const getProgressionMember = (initial, pos, diff) => initial + ((pos - 1) * diff);
+const getProgressionMember = (initial, diff, pos) => initial + ((pos - 1) * diff);
 
-const progression = (initialTerm, commonDifference, position, lengthProgression) => {
+const getProgression = (initial, difference, position, lengthProgression) => {
   const iter = (acc, strLength) => {
-    const number = getProgressionMember(initialTerm, strLength, commonDifference);
+    const number = getProgressionMember(initial, difference, strLength);
     const curentAcc = (strLength === position) ? `${acc} ..` : `${acc} ${number}`;
     if (strLength === lengthProgression) {
       return acc;
@@ -31,13 +31,13 @@ const buildGame = (difficulty) => {
         return getRandomInt(1, 5);
     }
   };
-  const initialTerm = getRandomInt(0, 20);
-  const commonDifference = selectDifficulty(difficulty);
+  const initial = getRandomInt(0, 20);
+  const difference = selectDifficulty(difficulty);
   const position = getRandomInt(2, 9);
   const lengthProgression = 11;
-  const progressionResut = progression(initialTerm, commonDifference, position, lengthProgression);
+  const progressionResut = getProgression(initial, difference, position, lengthProgression);
   const question = progressionResut;
-  const correctAnswer = String(getProgressionMember(initialTerm, position, commonDifference));
+  const correctAnswer = String(getProgressionMember(initial, difference, position));
   return cons(question, correctAnswer);
 };
 
